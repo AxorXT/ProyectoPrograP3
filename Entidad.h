@@ -6,15 +6,28 @@
 #define PROYECTOPROGRAP3_ENTIDAD_H
 
 #include <iostream>
+#include <string>
 
 class Entidad {
 public:
 
     Entidad();
-    Entidad(std::string nombre, int salud);
-    ~Entidad();
+    Entidad(const std::string &nombre, int salud);
+    virtual ~Entidad();
 
-    virtual void actualizar();
+    virtual void mostrarInformacion();
+
+    std::string getNombre() const;
+    void setNombre(std::string nombre);
+
+    int getSalud() const;
+    void setSalud(int salud);
+
+
+private:
+
+    std::string nombre;
+    int salud;
 
 
 };

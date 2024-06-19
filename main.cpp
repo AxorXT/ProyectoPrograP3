@@ -2,13 +2,13 @@
 // Created by Alumnos on 20/06/2024.
 //
 
-#include "Jugador.h"
+#include "Personaje.h"
 #include "Enemigo.h"
 #include <iostream>
 
 int main() {
-    Jugador jugador("Heroe", 100, 50);
-    Enemigo enemigo("Orco", 80, 15);
+    Personaje jugador("Heroe", 100, 50, 20);
+    Enemigo enemigo("Orco", 100, 80, 15);
 
     Item espada("Espada", "Arma");
     Item escudo("Escudo", "Defensa");
@@ -16,7 +16,7 @@ int main() {
     jugador.agregarItem(espada);
     jugador.agregarItem(escudo);
 
-    std::cout << "\n--- Información del Jugador ---" << std::endl;
+    std::cout << "\n--- Información del Personaje ---" << std::endl;
     jugador.mostrarInformacion();
 
     std::cout << "\n--- Información del Enemigo ---" << std::endl;
