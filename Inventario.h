@@ -8,8 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Item.h"
-#include "Habilidad.h"
+#include "item.h"
 
 class Inventario {
 public:
@@ -17,15 +16,15 @@ public:
     // Constructor
     Inventario();
 
-    Inventario(std::vector<std::string> items, std::vector<Item *> conjuntoItems);
+    Inventario(const std::vector<std::string>& items, std::vector<item *> conjuntoItems);
 
     virtual ~Inventario();
 
     // Método para agregar un ítem
-    void agregarItem(const std::string& item);
+    void agregarItem(const item& item);
 
     //Metodo para agregar pociones y armas
-    void agregarAP(Item* newItem);
+    void agregarAP(item* newItem);
 
     // Método para eliminar un ítem
     void eliminarItem(const std::string& item);
@@ -40,7 +39,7 @@ private:
     std::vector<std::string> items;
 
     //Agregamos vector para guardar items
-    std::vector<Item *> conjuntoItems;
+    std::vector<item *> conjuntoItems;
 
 };
 

@@ -8,7 +8,7 @@
 
 Inventario::Inventario() {}
 
-Inventario::Inventario(std::vector<std::string> items, std::vector<Item *> conjuntoItems) {
+Inventario::Inventario(const std::vector<std::string>& items, std::vector<item *> conjuntoItems) {
     this -> items = items;
     this -> conjuntoItems = conjuntoItems;
 }
@@ -16,15 +16,14 @@ Inventario::Inventario(std::vector<std::string> items, std::vector<Item *> conju
 Inventario::~Inventario() {}
 
 // Método para agregar un ítem
-void Inventario::agregarItem(const std::string& item) {
-    items.push_back(item);
-    std::cout << "Item \"" << item << "\" agregado al inventario" << std::endl;
+void Inventario::agregarItem(const item& item) {
+    items.push_back(item.getNombre());
 }
 
 // Método para agregar arma o pocion
-void Inventario::agregarAP(Item *newItem) {
+void Inventario::agregarAP(item *newItem) {
     conjuntoItems.push_back(newItem);
-    std::cout << "Item \"" << newItem << "\" agregado al inventario" << std::endl;
+    std::cout << "item \"" << newItem << "\" agregado al inventario" << std::endl;
 }
 
 // Método para eliminar un ítem
@@ -32,21 +31,21 @@ void Inventario::eliminarItem(const std::string& item) {
     auto it = std::find(items.begin(), items.end(), item);
     if (it != items.end()) {
         items.erase(it);
-        std::cout << "Item \"" << item << "\" eliminado del inventario" << std::endl;
+        std::cout << "item \"" << item << "\" eliminado del inventario" << std::endl;
     } else {
-        std::cout << "Item \"" << item << "no encontrado en el inventario" << std::endl;
+        std::cout << "item \"" << item << "no encontrado en el inventario" << std::endl;
     }
     // Eliminar de conjuntoItems (items)
     auto iterador2 = std::find_if(conjuntoItems.begin(), conjuntoItems.end(),
-                                  [&item](Item* Item) {
+                                  [&item](class item* Item) {
                                       return Item->getNombre() == item;
                                   });
     if (iterador2 != conjuntoItems.end()) {
-        std::cout << "Item " << (*iterador2)->getNombre() << " eliminado" << std::endl;
+        std::cout << "item " << (*iterador2)->getNombre() << " eliminado" << std::endl;
         delete *iterador2;  // Eliminar el objeto apuntado por el puntero
         conjuntoItems.erase(iterador2);
     } else {
-        std::cout << "Item no encontrado" << std::endl;
+        std::cout << "item no encontrado" << std::endl;
     }
 }
 
@@ -74,6 +73,6 @@ void Inventario::usarItem(const std::string &item) {
         std::cout << "Usando item \"" << item << "\"." << std::endl;
         items.erase(it);
     } else {
-        std::cout << "Item \"" << item << "\" no encontrado en el inventario" << std::endl;
+        std::cout << "item \"" << item << "\" no encontrado en el inventario" << std::endl;
     }
 }

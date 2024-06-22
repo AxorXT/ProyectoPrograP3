@@ -6,20 +6,21 @@
 
 Personaje::Personaje() : Entidad() {
     this -> mana = 0;
-    this -> dano = 0;
+    this -> danoA = 0;
 }
 
-Personaje::Personaje(const std::string &nombre, int salud, int mana, int dano) : Entidad (nombre, salud){
+Personaje::Personaje(const std::string &nombreA, int saludA, int mana, int danoA) : Entidad (nombreA, saludA){
     this -> mana = mana;
-    this -> dano = dano;
+    this -> danoA = danoA;
 }
 
-Personaje::~Personaje(){
-    std::cout << "Personaje exploto" << std::endl;
-}
+Personaje::~Personaje(){}
 
-void Personaje::mostrarInformacion() {
-    std::cout << "Golpe" << std::endl;
+void Personaje::mostrar() {
+    std::cout << getNombre() << std::endl;
+    std::cout << getSalud() << std::endl;
+    std::cout << getMana() << std::endl;
+    std::cout << getDanoA() << std::endl;
 }
 
 int Personaje::getMana() const {
@@ -30,10 +31,10 @@ void Personaje::setMana(int mana) {
     this -> mana = mana;
 }
 
-int Personaje::getDano() const {
-    return dano;
+int Personaje::getDanoA() const {
+    return danoA;
 }
 
-void Personaje::setDano(int dano) {
-    this -> dano = dano;
+void Personaje::setDanoA(int danoA) {
+    this -> danoA = danoA;
 }

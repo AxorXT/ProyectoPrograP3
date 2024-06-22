@@ -14,7 +14,7 @@ public:
     Enemigo(const std::string &nombre, int salud, int danio, int armadura);
     ~Enemigo();
 
-    void mostrarInformacion() override;
+    void mostrar() override;
 
     int getDanio() const;
     void setDanio(int danio);

@@ -16,7 +16,7 @@ Entidad::Entidad(const std::string &nombre, int salud) {
 
 Entidad::~Entidad() {}
 
-void Entidad::mostrarInformacion() {}
+void Entidad::mostrar() {}
 
 int Entidad::getSalud() const {
     return salud;

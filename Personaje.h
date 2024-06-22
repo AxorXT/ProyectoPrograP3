@@ -13,24 +13,24 @@ class Personaje : public Entidad {
 public:
 
     Personaje(); //Constructor default
-    Personaje(const std::string &nombre, int salud, int mana, int dano); //Constructor Parametros
+    Personaje(const std::string &nombreA, int saludA, int mana, int danoA); //Constructor Parametros
     ~Personaje(); //Destructor
 
-    void mostrarInformacion() override;
+    void mostrar() override;
 
     int getMana() const;
     void setMana(int mana);
 
-    int getDano() const;
-    void setDano(int dano);
+    int getDanoA() const;
+    void setDanoA(int danoA);
 
 private:
 
-    int salud;
-    std::string nombre;
+    int saludA;
+    std::string nombreA;
 
     int mana;
-    int dano;
+    int danoA;
 
 };
 

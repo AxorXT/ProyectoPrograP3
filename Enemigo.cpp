@@ -9,12 +9,20 @@ Enemigo::Enemigo() {
     this -> armadura = 0;
 }
 
-Enemigo::Enemigo(const std::string &nombre, int salud, int danio, int armadura) {
+Enemigo::Enemigo(const std::string &nombre, int salud, int danio, int armadura) : Entidad(nombre, salud){
     this -> danio = danio;
     this -> armadura = armadura;
 }
 
-Enemigo::~Enemigo() {}
+Enemigo::~Enemigo() {
+}
+
+void Enemigo::mostrar() {
+    std::cout << getNombre() << std::endl;
+    std::cout << getSalud() << std::endl;
+    std::cout << getDanio() << std::endl;
+    std::cout << getArmadura() << std::endl;
+}
 
 int Enemigo::getDanio() const {
     return danio;

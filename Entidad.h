@@ -15,7 +15,7 @@ public:
     Entidad(const std::string &nombre, int salud);
     virtual ~Entidad();
 
-    virtual void mostrarInformacion();
+    virtual void mostrar();
 
     std::string getNombre() const;
     void setNombre(std::string nombre);
